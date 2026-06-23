@@ -1,26 +1,156 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Цветова схема — бяло, графитено, тъмносиньо, акцентно оранжево */
+  --color-white: #ffffff;
+  --color-paper: #f6f5f2;
+  --color-stone: #eceae5;
+
+  --color-graphite-50: #f5f6f7;
+  --color-graphite-100: #e3e5e8;
+  --color-graphite-200: #cdd1d6;
+  --color-graphite-300: #aab0b8;
+  --color-graphite-400: #8a8f98;
+  --color-graphite-500: #6b7079;
+  --color-graphite-600: #4a4f57;
+  --color-graphite-700: #34383f;
+  --color-graphite-800: #23262c;
+  --color-graphite-900: #16181d;
+  --color-graphite-950: #0e0f12;
+
+  --color-navy: #0f2a43;
+  --color-navy-light: #163b5c;
+
+  --color-accent: #e2640f;
+  --color-accent-dark: #c2530b;
+  --color-accent-soft: #f3a35f;
+  /* По-наситено оранжево за плътни бутони — преминава WCAG AA с бял текст */
+  --color-accent-strong: #b34d08;
+  --color-accent-strong-dark: #9a4207;
+
+  --color-background: var(--color-white);
+  --color-foreground: var(--color-graphite-900);
+
+  --font-sans: var(--font-manrope), system-ui, sans-serif;
+  --font-display: var(--font-oswald), var(--font-manrope), sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  * {
+    border-color: var(--color-graphite-100);
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-white);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .container-px {
+    padding-inline: 1.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    .container-px {
+      padding-inline: 2.5rem;
+    }
+  }
+
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+  }
+
+  /* Предупредителна (строителна) лента */
+  .hazard-stripe {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      var(--color-accent) 0,
+      var(--color-accent) 14px,
+      var(--color-graphite-950) 14px,
+      var(--color-graphite-950) 28px
+    );
+  }
+}
+
+/* Анимация на ръката на багера — върти се около рамото (стабилен origin) */
+.excavator-arm {
+  transform-box: view-box;
+  transform-origin: 150px 106px;
+  animation: excavator-dig 2.8s ease-in-out infinite;
+}
+
+@keyframes excavator-dig {
+  0% {
+    transform: rotate(-8deg);
+  }
+  42% {
+    transform: rotate(9deg);
+  }
+  58% {
+    transform: rotate(9deg);
+  }
+  100% {
+    transform: rotate(-8deg);
+  }
+}
+
+/* Леко „загребване" на кофата, синхронизирано с ръката */
+.excavator-bucket {
+  transform-box: view-box;
+  transform-origin: 214px 112px;
+  animation: excavator-curl 2.8s ease-in-out infinite;
+}
+
+@keyframes excavator-curl {
+  0% {
+    transform: rotate(-4deg);
+  }
+  42% {
+    transform: rotate(16deg);
+  }
+  58% {
+    transform: rotate(16deg);
+  }
+  100% {
+    transform: rotate(-4deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .excavator-arm {
+    animation: none;
+  }
 }
