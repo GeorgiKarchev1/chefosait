@@ -1,24 +1,24 @@
 import type { Metadata } from "next";
-import { Manrope, Oswald } from "next/font/google";
+import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
 import { company } from "@/lib/data";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
-const manrope = Manrope({
+const inter = Inter({
   subsets: ["latin", "cyrillic"],
-  variable: "--font-manrope",
+  variable: "--font-inter",
   display: "swap",
 });
 
-const oswald = Oswald({
+const montserrat = Montserrat({
   subsets: ["latin", "cyrillic"],
-  weight: ["500", "600", "700"],
-  variable: "--font-oswald",
+  weight: ["500", "600", "700", "800"],
+  variable: "--font-montserrat",
   display: "swap",
 });
 
-const siteUrl = "https://stilenmaks.bg";
+const siteUrl = "https://sdmconstruct.bg";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -27,14 +27,14 @@ export const metadata: Metadata = {
     template: `%s | ${company.name}`,
   },
   description:
-    "Строителна компания с над 15 години опит в жилищно и промишлено строителство, ремонти и реконструкции. Качествено изпълнение в срок.",
+    "Груб строеж за жилищни и промишлени обекти — фундаменти, кофраж, армировка и зидария по проект, с прецизен геодезически контрол.",
   keywords: [
-    "строителна фирма",
-    "жилищно строителство",
-    "промишлено строителство",
-    "ремонти",
-    "реконструкции",
     "груб строеж",
+    "фундаменти",
+    "кофраж и армировка",
+    "зидария",
+    "геодезически контрол",
+    "строителна фирма",
     "строителство София",
   ],
   authors: [{ name: company.legalName }],
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     siteName: company.name,
     title: `${company.name} — Строителна компания`,
     description:
-      "Над 15 години опит в жилищно и промишлено строителство. Качествено изпълнение в срок.",
+      "Специалисти по груб строеж — фундаменти, кофраж, армировка и зидария. Качествено изпълнение в срок.",
   },
   robots: {
     index: true,
@@ -77,7 +77,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="bg" className={`${manrope.variable} ${oswald.variable}`}>
+    <html lang="bg" className={`${inter.variable} ${montserrat.variable}`}>
       <body className="min-h-screen antialiased">
         <a
           href="#main"

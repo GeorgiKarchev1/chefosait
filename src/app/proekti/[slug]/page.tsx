@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, MapPin, Maximize, Calendar, Building2, Clock } from "lucide-react";
-import { projects } from "@/lib/data";
+import { ArrowLeft, Phone, MapPin, Maximize, Calendar, Building2, Clock } from "lucide-react";
+import { company, projects } from "@/lib/data";
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { ProjectCard } from "@/components/project-card";
+import { cn } from "@/lib/utils";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -169,13 +170,16 @@ export default async function ProjectPage({
               Имате подобен проект?
             </h2>
             <p className="mt-2 text-white/65">
-              Свържете се с нас за оглед и индивидуална оферта.
+              Обадете се за оглед и индивидуална оферта.
             </p>
           </div>
-          <Button href="/#kontakti" size="lg">
-            Поискай оферта
-            <ArrowRight className="size-5" aria-hidden />
-          </Button>
+          <a
+            href={`tel:${company.phoneHref}`}
+            className={cn(buttonVariants({ size: "lg" }), "gap-3")}
+          >
+            <Phone className="size-5 shrink-0" aria-hidden />
+            <span className="tracking-normal">{company.phone}</span>
+          </a>
         </Container>
       </section>
 

@@ -18,8 +18,9 @@ export function About() {
             <div className="mt-5 space-y-4 leading-relaxed text-graphite-600">
               <p>
                 {company.legalName} работи на българския пазар от {company.founded}{" "}
-                година. Изпълняваме проекти от жилищни сгради до промишлени
-                халета — изцяло, от груб строеж до предаване с Акт 16.
+                година. Специализирани сме в груб строеж — фундаменти, кофраж,
+                армировка и зидария за жилищни сгради и промишлени халета, с
+                прецизен геодезически контрол на всяко ниво.
               </p>
             </div>
 
@@ -40,7 +41,7 @@ export function About() {
           <Reveal className="relative" delay={0.1}>
             <div className="relative aspect-[4/5] w-full overflow-hidden">
               <Image
-                src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1400&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1400&auto=format&fit=crop"
                 alt="Технически ръководители на строителен обект"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"

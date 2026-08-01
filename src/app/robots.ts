@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://stilenmaks.bg/sitemap.xml",
+    sitemap: "https://sdmconstruct.bg/sitemap.xml",
   };
 }

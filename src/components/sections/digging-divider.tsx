@@ -1,10 +1,12 @@
 "use client";
 
-import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { Phone } from "lucide-react";
 import { Container } from "@/components/ui/container";
+import { buttonVariants } from "@/components/ui/button";
 import { Excavator } from "@/components/excavator";
+import { company } from "@/lib/data";
+import { cn } from "@/lib/utils";
 
 // Характерна разделителна лента с анимиран багер, който копае на „земята".
 export function DiggingDivider() {
@@ -12,10 +14,10 @@ export function DiggingDivider() {
 
   return (
     <section className="relative overflow-hidden bg-graphite-900">
-      {/* фонов надпис-текстура */}
+      {/* фонов надпис-текстура — мащабира се с ширината на екрана */}
       <span
         aria-hidden
-        className="pointer-events-none absolute -right-4 top-2 select-none font-display text-[7rem] font-bold uppercase leading-none tracking-tight text-white/[0.03] sm:text-[10rem] lg:text-[13rem]"
+        className="pointer-events-none absolute right-0 top-4 select-none whitespace-nowrap pr-4 font-display text-[clamp(3.25rem,15vw,12rem)] font-extrabold uppercase leading-none tracking-tight text-white/[0.045] lg:top-6"
       >
         Строим
       </span>
@@ -31,13 +33,18 @@ export function DiggingDivider() {
             Поемаме целия процес на терен — техника, екип и контрол на качеството
             на всеки етап.
           </p>
-          <Link
-            href="/#kontakti"
-            className="group mt-6 inline-flex items-center gap-2 text-sm font-semibold text-white transition-colors hover:text-accent-soft"
+          <a
+            href={`tel:${company.phoneHref}`}
+            className={cn(
+              buttonVariants({ size: "lg" }),
+              "mt-7 w-full gap-3 sm:w-auto"
+            )}
           >
-            Стартирай проект
-            <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" aria-hidden />
-          </Link>
+            <Phone className="size-[1.15rem] shrink-0" aria-hidden />
+            <span className="whitespace-nowrap text-[0.95rem] tracking-normal tabular-nums">
+              {company.phone}
+            </span>
+          </a>
         </div>
 
         {/* Багерът — влиза отляво при скрол и копае */}

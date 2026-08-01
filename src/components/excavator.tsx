@@ -5,16 +5,16 @@ import { motion, useReducedMotion } from "framer-motion";
 // Детайлизиран багер със собствен SVG: артикулирана ръка (рамо + кофа),
 // хидравлични цилиндри, вериги със звезда и обтегач. Анимира се чрез CSS.
 const C = {
-  body: "#e2640f",
-  bodyDark: "#b34d08",
-  bodyHi: "#f3a35f",
-  ink: "#0e0f12",
-  steel: "#5b626c",
-  steelDark: "#34383f",
-  track: "#23262c",
-  trackHub: "#3a3f47",
-  glass: "#bcd2e0",
-  beacon: "#f5c542",
+  body: "#c79216",
+  bodyDark: "#8a6410",
+  bodyHi: "#e3b34c",
+  ink: "#111111",
+  steel: "#5f5f5d",
+  steelDark: "#3a3a3a",
+  track: "#292929",
+  trackHub: "#454545",
+  glass: "#cfd6da",
+  beacon: "#f2dfae",
 };
 
 const DIG = 2.8;

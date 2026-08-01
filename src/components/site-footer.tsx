@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
-import { company, navLinks, services } from "@/lib/data";
+import { company, navLinks, service } from "@/lib/data";
 import { Container } from "@/components/ui/container";
+import { Logo } from "@/components/logo";
 
 function FacebookIcon() {
   return (
@@ -37,12 +38,10 @@ export function SiteFooter() {
       <Container className="py-20">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
           <div>
-            <p className="font-display text-2xl font-bold uppercase tracking-tight">
-              {company.name}
-            </p>
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/60">
-              Строителна компания за жилищни и промишлени обекти с над 15 години
-              опит. Изпълняваме качествено и в срок.
+            <Logo dark={false} />
+            <p className="mt-6 max-w-xs text-sm leading-relaxed text-white/60">
+              Специалисти по груб строеж за жилищни и промишлени обекти. Работим
+              по проект, с прецизен контрол и в срок.
             </p>
             <div className="mt-6 flex gap-3">
               <SocialLink href={company.social.facebook} label="Facebook">
@@ -70,14 +69,14 @@ export function SiteFooter() {
             ))}
           </FooterCol>
 
-          <FooterCol title="Услуги">
-            {services.slice(0, 5).map((s) => (
-              <li key={s.slug}>
+          <FooterCol title={service.title}>
+            {service.points.map((p) => (
+              <li key={p.title}>
                 <Link
                   href="/#uslugi"
                   className="inline-block py-1 text-white/60 transition-colors hover:text-white"
                 >
-                  {s.title}
+                  {p.title}
                 </Link>
               </li>
             ))}

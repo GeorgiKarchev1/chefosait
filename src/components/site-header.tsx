@@ -6,7 +6,7 @@ import { Menu, X, Phone } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { company, navLinks } from "@/lib/data";
 import { Container } from "@/components/ui/container";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { Logo } from "@/components/logo";
 import { cn } from "@/lib/utils";
 
@@ -37,7 +37,7 @@ export function SiteHeader() {
           : "border-b border-transparent bg-transparent"
       )}
     >
-      <Container className="flex h-20 items-center justify-between">
+      <Container className="flex h-20 items-center justify-between sm:h-24 lg:h-28">
         <Link
           href="/"
           aria-label={`${company.name} — начало`}
@@ -61,20 +61,14 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-5 lg:flex">
+        <div className="hidden items-center lg:flex">
           <a
             href={`tel:${company.phoneHref}`}
-            className={cn(
-              "flex items-center gap-2 text-sm font-semibold transition-colors hover:text-accent",
-              scrolled ? "text-graphite-900" : "text-white"
-            )}
+            className={cn(buttonVariants({ size: "md" }), "gap-2.5")}
           >
-            <Phone className="size-4" aria-hidden />
-            {company.phone}
+            <Phone className="size-4 shrink-0" aria-hidden />
+            <span className="tracking-normal">{company.phone}</span>
           </a>
-          <Button href="/#kontakti" size="md">
-            Поискай оферта
-          </Button>
         </div>
 
         <button
@@ -113,19 +107,12 @@ export function SiteHeader() {
               ))}
               <a
                 href={`tel:${company.phoneHref}`}
-                className="flex items-center gap-2 py-4 text-lg font-semibold text-graphite-900"
-              >
-                <Phone className="size-5 text-accent" aria-hidden />
-                {company.phone}
-              </a>
-              <Button
-                href="/#kontakti"
-                size="lg"
-                className="mt-2 w-full"
+                className={cn(buttonVariants({ size: "lg" }), "mt-4 w-full gap-3")}
                 onClick={() => setOpen(false)}
               >
-                Поискай оферта
-              </Button>
+                <Phone className="size-5 shrink-0" aria-hidden />
+                <span className="tracking-normal">{company.phone}</span>
+              </a>
             </Container>
           </motion.div>
         )}

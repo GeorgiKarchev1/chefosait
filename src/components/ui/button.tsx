@@ -4,23 +4,23 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "group/btn inline-flex items-center justify-center gap-2.5 whitespace-nowrap font-display font-semibold uppercase tracking-[0.08em] transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  "group/btn relative inline-flex items-center justify-center gap-2.5 whitespace-nowrap font-display font-bold uppercase tracking-[0.04em] transition-[background-color,color,border-color,box-shadow,filter] duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
-        // Плътен оранжев с тъмен текст — индустриален вид, не SaaS
+        // Метално злато с тъмен текст — светло отгоре, наситено отдолу
         primary:
-          "bg-accent text-graphite-950 shadow-[0_2px_0_0_var(--color-accent-strong-dark)] hover:bg-accent-soft hover:shadow-[0_4px_0_0_var(--color-accent-strong-dark)] hover:-translate-y-0.5 focus-visible:ring-offset-white",
-        dark: "bg-graphite-900 text-white hover:bg-graphite-800 focus-visible:ring-offset-white",
+          "gold-surface text-graphite-950 focus-visible:ring-offset-white",
+        dark: "bg-graphite-900 text-white hover:bg-accent hover:text-graphite-950 focus-visible:ring-offset-white",
         outline:
-          "border-2 border-graphite-900 text-graphite-900 hover:bg-graphite-900 hover:text-white focus-visible:ring-offset-white",
+          "border border-graphite-300 text-graphite-900 hover:border-accent hover:bg-accent hover:text-graphite-950 focus-visible:ring-offset-white",
         outlineLight:
-          "border-2 border-white/40 text-white hover:border-white hover:bg-white hover:text-graphite-950 focus-visible:ring-offset-graphite-900",
+          "border border-accent/45 text-white hover:border-accent hover:bg-accent hover:text-graphite-950 focus-visible:ring-offset-graphite-900",
         ghost: "text-graphite-900 hover:text-accent",
       },
       size: {
-        md: "h-12 px-6 text-[0.8rem]",
-        lg: "h-14 px-8 text-sm",
+        md: "h-11 px-6 text-[0.75rem]",
+        lg: "h-14 px-8 text-[0.82rem]",
       },
     },
     defaultVariants: {
