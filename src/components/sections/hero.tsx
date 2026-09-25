@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 
 export function Hero() {
   return (
-    <section id="nachalo" className="relative flex min-h-[90svh] items-center overflow-hidden bg-graphite-950 text-white">
+    <section id="nachalo" className="relative flex min-h-svh items-center overflow-hidden bg-graphite-950 text-white">
       <div className="absolute inset-0" aria-hidden>
         <Image
           src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2400&auto=format&fit=crop"
