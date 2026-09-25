@@ -46,7 +46,7 @@ export function SiteHeader() {
           <Logo dark={scrolled || open} />
         </Link>
 
-        <nav className="hidden items-center gap-9 lg:flex" aria-label="Основна навигация">
+        <nav className="hidden items-center gap-5 lg:flex xl:gap-8" aria-label="Основна навигация">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -61,28 +61,29 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <div className="hidden items-center lg:flex">
+        <div className="flex items-center gap-1 sm:gap-4">
           <a
             href={`tel:${company.phoneHref}`}
-            className={cn(buttonVariants({ size: "md" }), "gap-2.5")}
+            aria-label={`Обадете се на ${company.phone}`}
+            className={cn(buttonVariants({ size: "md" }), "px-2 text-xs normal-case tracking-normal sm:px-4 sm:text-sm")}
           >
-            <Phone className="size-4 shrink-0" aria-hidden />
-            <span className="tracking-normal">{company.phone}</span>
+            <Phone className="hidden size-4 shrink-0 sm:block" aria-hidden />
+            <span>{company.phone}</span>
           </a>
-        </div>
 
-        <button
-          type="button"
-          className={cn(
-            "lg:hidden",
-            scrolled || open ? "text-graphite-900" : "text-white"
-          )}
-          aria-label={open ? "Затвори менюто" : "Отвори менюто"}
-          aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
-        >
-          {open ? <X className="size-7" /> : <Menu className="size-7" />}
-        </button>
+          <button
+            type="button"
+            className={cn(
+              "flex size-11 items-center justify-center lg:hidden",
+              scrolled || open ? "text-graphite-900" : "text-white"
+            )}
+            aria-label={open ? "Затвори менюто" : "Отвори менюто"}
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+          >
+            {open ? <X className="size-7" /> : <Menu className="size-7" />}
+          </button>
+        </div>
       </Container>
 
       <AnimatePresence>
@@ -107,7 +108,8 @@ export function SiteHeader() {
               ))}
               <a
                 href={`tel:${company.phoneHref}`}
-                className={cn(buttonVariants({ size: "lg" }), "mt-4 w-full gap-3")}
+                aria-label={`Обадете се на ${company.phone}`}
+                className={cn(buttonVariants({ size: "lg" }), "mt-4 w-full gap-3 normal-case")}
                 onClick={() => setOpen(false)}
               >
                 <Phone className="size-5 shrink-0" aria-hidden />

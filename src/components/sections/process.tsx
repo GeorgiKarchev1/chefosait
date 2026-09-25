@@ -1,40 +1,37 @@
+import { Phone } from "lucide-react";
 import { Container } from "@/components/ui/container";
+import { buttonVariants } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { processSteps } from "@/lib/data";
+import { company } from "@/lib/data";
+import { homeCopy, processCopy } from "@/lib/notes";
+import { cn } from "@/lib/utils";
 
 export function Process() {
   return (
-    <section id="proces" className="bg-paper py-24 lg:py-32">
+    <section id="proces" className="bg-white py-20 lg:py-28">
       <Container>
-        <SectionHeading
-          eyebrow="Процес на работа"
-          title="От идея до готов обект"
-          description="Ясен и предвидим път за всеки проект. Знаете какво следва на всеки етап."
-        />
-
-        <ol className="mt-16 grid gap-y-12 md:grid-cols-5 md:gap-x-6">
-          {processSteps.map((step, i) => (
-            <Reveal
-              key={step.number}
-              as="li"
-              delay={i * 0.08}
-              className="relative md:pr-6"
-            >
-              <span className="font-display text-6xl font-bold text-graphite-100">
-                {step.number}
-              </span>
-              <span className="absolute left-0 top-4 h-px w-12 bg-accent md:top-9" />
-
-              <h3 className="mt-4 text-xl font-semibold text-graphite-900">
-                {step.title}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-graphite-600">
-                {step.description}
-              </p>
+        <SectionHeading eyebrow={processCopy.title} title={processCopy.headline} />
+        <ol className="mt-12 grid gap-x-12 md:grid-cols-2 lg:grid-cols-3">
+          {processCopy.steps.map((step) => (
+            <Reveal key={step.title} as="li" className="border-t border-graphite-200 py-8">
+              <h3 className="text-xl font-semibold leading-snug text-graphite-900">{step.title}</h3>
+              <div className="mt-5 h-0.5 w-10 bg-accent" aria-hidden />
+              <p className="mt-5 leading-relaxed text-graphite-600">{step.description}</p>
             </Reveal>
           ))}
         </ol>
+        <div className="mt-8 flex flex-col gap-5 border-t border-graphite-200 pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <h3 className="text-2xl font-semibold text-graphite-900">{homeCopy.actions[0]}</h3>
+          <a
+            href={`tel:${company.phoneHref}`}
+            aria-label={`Поискайте оферта на ${company.phone}`}
+            className={cn(buttonVariants({ size: "lg" }), "text-base normal-case tracking-normal")}
+          >
+            <Phone className="size-5 shrink-0" aria-hidden />
+            {company.phone}
+          </a>
+        </div>
       </Container>
     </section>
   );

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
 import { company } from "@/lib/data";
+import { siteUrl } from "@/lib/site";
+import { homeCopy, servicesCopy } from "@/lib/notes";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
@@ -18,34 +20,22 @@ const montserrat = Montserrat({
   display: "swap",
 });
 
-const siteUrl = "https://sdmconstruct.bg";
-
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${company.name} — Строителна компания`,
+    default: `${company.name} | ${homeCopy.headline}`,
     template: `%s | ${company.name}`,
   },
-  description:
-    "Груб строеж за жилищни и промишлени обекти — фундаменти, кофраж, армировка и зидария по проект, с прецизен геодезически контрол.",
-  keywords: [
-    "груб строеж",
-    "фундаменти",
-    "кофраж и армировка",
-    "зидария",
-    "геодезически контрол",
-    "строителна фирма",
-    "строителство София",
-  ],
-  authors: [{ name: company.legalName }],
+  description: homeCopy.paragraphs[0],
+  keywords: servicesCopy.items.map((item) => item.title),
+  authors: [{ name: company.name }],
   openGraph: {
     type: "website",
     locale: "bg_BG",
     url: siteUrl,
     siteName: company.name,
-    title: `${company.name} — Строителна компания`,
-    description:
-      "Специалисти по груб строеж — фундаменти, кофраж, армировка и зидария. Качествено изпълнение в срок.",
+    title: `${company.name} | ${homeCopy.headline}`,
+    description: homeCopy.paragraphs[0],
   },
   robots: {
     index: true,
@@ -64,16 +54,9 @@ export default function RootLayout({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "GeneralContractor",
-    name: company.legalName,
+    name: company.name,
     url: siteUrl,
-    telephone: company.phone,
-    email: company.email,
-    foundingDate: String(company.founded),
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: company.address,
-      addressCountry: "BG",
-    },
+    telephone: company.phoneHref,
   };
 
   return (

@@ -184,7 +184,13 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .excavator-arm {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .excavator-arm,
+  .excavator-bucket {
     animation: none;
   }
 }

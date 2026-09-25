@@ -17,7 +17,7 @@ export function Logo({
       alt={company.name}
       width={378}
       height={348}
-      priority
+      preload
       className={cn(
         "h-14 w-auto transition-[filter] duration-300 sm:h-16 lg:h-[4.5rem]",
         dark ? "" : "brightness-0 invert",

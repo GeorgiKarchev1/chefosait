@@ -85,8 +85,7 @@ export function Excavator({ className }: { className?: string }) {
       {/* ауспух */}
       <rect x="74" y="97" width="6" height="11" rx="2" fill={C.steel} stroke={C.ink} strokeWidth="1.5" />
 
-      {!reduce && (
-        <>
+      <g className="motion-reduce:hidden">
           {[0, 1, 2].map((i) => (
             <motion.circle
               key={i}
@@ -95,12 +94,11 @@ export function Excavator({ className }: { className?: string }) {
               r="3.5"
               fill="#9aa0a8"
               initial={{ opacity: 0 }}
-              animate={{ opacity: [0, 0.45, 0], y: [-2, -16, -28], x: [0, -4, -10], scale: [0.6, 1, 1.35] }}
+              animate={reduce ? { opacity: 0 } : { opacity: [0, 0.45, 0], y: [-2, -16, -28], x: [0, -4, -10], scale: [0.6, 1, 1.35] }}
               transition={{ duration: 2.4, repeat: Infinity, delay: i * 0.8, ease: "easeOut" }}
             />
           ))}
-        </>
-      )}
+      </g>
 
       {/* шарнир на рамото */}
       <circle cx="150" cy="106" r="6" fill={C.steelDark} stroke={C.ink} strokeWidth="2" />
@@ -146,8 +144,7 @@ export function Excavator({ className }: { className?: string }) {
       </g>
 
       {/* буци пръст */}
-      {!reduce && (
-        <g>
+      <g className="motion-reduce:hidden">
           {[
             { x: 232, y: 160, dx: 22, dy: -24, r: 4 },
             { x: 236, y: 162, dx: 32, dy: -12, r: 3 },
@@ -161,12 +158,11 @@ export function Excavator({ className }: { className?: string }) {
               r={p.r}
               fill="#7a5230"
               initial={{ opacity: 0 }}
-              animate={{ opacity: [0, 0, 1, 0], x: [0, 0, p.dx, p.dx + 6], y: [0, 0, p.dy, 8], scale: [0.4, 0.4, 1, 0.5] }}
+              animate={reduce ? { opacity: 0 } : { opacity: [0, 0, 1, 0], x: [0, 0, p.dx, p.dx + 6], y: [0, 0, p.dy, 8], scale: [0.4, 0.4, 1, 0.5] }}
               transition={{ duration: DIG, repeat: Infinity, ease: "easeOut", times: [0, 0.4, 0.6, 0.85], delay: i * 0.05 }}
             />
           ))}
-        </g>
-      )}
+      </g>
     </svg>
   );
 }
