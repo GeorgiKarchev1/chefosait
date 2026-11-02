@@ -1,4 +1,5 @@
 import { Container } from "@/components/ui/container";
+import { MobileDisclosure } from "@/components/ui/mobile-disclosure";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { servicesCopy } from "@/lib/notes";
@@ -14,9 +15,10 @@ export function Services() {
               <span className="pt-1 font-display text-sm font-semibold tabular-nums text-accent-dark" aria-hidden>
                 {String(index + 1).padStart(2, "0")}
               </span>
-              <div>
-                <h3 className="text-xl font-semibold text-graphite-900">{item.title}</h3>
-                <p className="mt-3 leading-relaxed text-graphite-600">{item.description}</p>
+              <div className="min-w-0 flex-1">
+                <MobileDisclosure title={item.title} titleClassName="text-xl font-semibold text-graphite-900">
+                  <p className="mt-3 leading-relaxed text-graphite-600">{item.description}</p>
+                </MobileDisclosure>
               </div>
             </Reveal>
           ))}

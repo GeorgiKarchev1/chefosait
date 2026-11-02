@@ -1,4 +1,5 @@
 import { Container } from "@/components/ui/container";
+import { MobileReadMore } from "@/components/ui/mobile-disclosure";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { homeCopy, introductionCopy } from "@/lib/notes";
 
@@ -8,9 +9,10 @@ export function Introduction() {
       <Container>
         <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
           <SectionHeading eyebrow={introductionCopy.title} title={introductionCopy.headline} />
-          <div className="space-y-5 leading-relaxed text-graphite-600">
-            {[...homeCopy.paragraphs, ...introductionCopy.paragraphs].map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-          </div>
+          <MobileReadMore
+            paragraphs={[...homeCopy.paragraphs, ...introductionCopy.paragraphs]}
+            className="leading-relaxed text-graphite-600"
+          />
         </div>
       </Container>
     </section>

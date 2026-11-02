@@ -1,5 +1,6 @@
 import { HardHat, Ruler, CalendarCheck, Handshake, Globe } from "lucide-react";
 import { Container } from "@/components/ui/container";
+import { MobileDisclosure } from "@/components/ui/mobile-disclosure";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { whyUsCopy } from "@/lib/notes";
@@ -17,8 +18,9 @@ export function WhyUs() {
             return (
               <Reveal key={item.title} as="article" className="bg-graphite-950 p-7 lg:p-8">
                 <Icon className="size-7 text-accent-soft" aria-hidden />
-                <h3 className="mt-5 text-xl font-semibold">{item.title}</h3>
-                <p className="mt-3 leading-relaxed text-white/70">{item.description}</p>
+                <MobileDisclosure title={item.title} titleClassName="mt-5 text-xl font-semibold">
+                  <p className="mt-3 leading-relaxed text-white/70">{item.description}</p>
+                </MobileDisclosure>
               </Reveal>
             );
           })}

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Container } from "@/components/ui/container";
+import { MobileReadMore } from "@/components/ui/mobile-disclosure";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { aboutCopy } from "@/lib/notes";
@@ -11,9 +12,7 @@ export function About() {
         <div className="grid items-start gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-20">
           <div>
             <SectionHeading eyebrow={aboutCopy.title} title={aboutCopy.headline} />
-            <div className="mt-7 space-y-5 leading-relaxed text-graphite-600">
-              {aboutCopy.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-            </div>
+            <MobileReadMore paragraphs={aboutCopy.paragraphs} className="mt-7 leading-relaxed text-graphite-600" />
           </div>
           <Reveal className="relative" delay={0.1}>
             <div className="relative aspect-[4/3] overflow-hidden lg:aspect-[4/5]">
