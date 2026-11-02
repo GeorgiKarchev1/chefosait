@@ -58,7 +58,16 @@ export default function RootLayout({
     url: siteUrl,
     telephone: [company.phoneHref, company.additionalPhoneHref],
     email: company.email,
-    sameAs: [company.instagram],
+    sameAs: [company.instagram, company.googleMaps],
+    hasMap: company.googleMaps,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "ул. 6-та",
+      postalCode: "4201",
+      addressLocality: "Бенковски",
+      addressCountry: "BG",
+    },
+    geo: { "@type": "GeoCoordinates", latitude: company.geo.lat, longitude: company.geo.lng },
   };
 
   return (

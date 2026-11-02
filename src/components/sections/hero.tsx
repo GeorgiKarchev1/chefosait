@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Phone } from "lucide-react";
+import { MapPin, Phone } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { buttonVariants } from "@/components/ui/button";
 import { company } from "@/lib/data";
@@ -37,6 +37,16 @@ export function Hero() {
             >
               <Phone className="size-5 shrink-0" aria-hidden />
               {company.phone}
+            </a>
+            <a
+              href={company.googleMaps}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Вижте ни в Google Maps (отваря се в нов раздел)"
+              className={cn(buttonVariants({ variant: "outlineLight", size: "lg" }), "text-base normal-case tracking-normal")}
+            >
+              <MapPin className="size-5 shrink-0 text-accent-soft group-hover/btn:text-graphite-950" aria-hidden />
+              Вижте ни в Google Maps
             </a>
           </div>
         </div>

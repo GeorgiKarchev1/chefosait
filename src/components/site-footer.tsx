@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Mail, Phone } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { InstagramIcon } from "@/components/ui/instagram-icon";
 import { Logo } from "@/components/logo";
@@ -47,6 +47,16 @@ export function SiteFooter() {
               >
                 <InstagramIcon className="size-5 shrink-0 text-accent-soft" />
                 {company.instagramHandle}
+              </a>
+              <a
+                href={company.googleMaps}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Вижте ни в Google Maps (отваря се в нов раздел)"
+                className="inline-flex min-h-11 items-center gap-3 py-2 text-sm text-white/70 transition-colors hover:text-accent-soft"
+              >
+                <MapPin className="size-5 shrink-0 text-accent-soft" aria-hidden />
+                Google Maps · отзиви
               </a>
             </div>
           </div>

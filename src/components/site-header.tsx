@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Menu, X, Phone } from "lucide-react";
+import { MapPin, Menu, X, Phone } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { company, navLinks } from "@/lib/data";
 import { Container } from "@/components/ui/container";
@@ -114,6 +114,17 @@ export function SiteHeader() {
               >
                 <Phone className="size-5 shrink-0" aria-hidden />
                 <span className="tracking-normal">{company.phone}</span>
+              </a>
+              <a
+                href={company.googleMaps}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Вижте ни в Google Maps (отваря се в нов раздел)"
+                className={cn(buttonVariants({ variant: "outline", size: "lg" }), "mt-2 w-full gap-3 normal-case tracking-normal")}
+                onClick={() => setOpen(false)}
+              >
+                <MapPin className="size-5 shrink-0 text-accent" aria-hidden />
+                Вижте ни в Google Maps
               </a>
             </Container>
           </motion.div>

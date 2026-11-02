@@ -5,6 +5,7 @@ import { DiggingDivider } from "@/components/sections/digging-divider";
 import { WhyUs } from "@/components/sections/why-us";
 import { Contact } from "@/components/sections/contact";
 import { Process } from "@/components/sections/process";
+import { Gallery } from "@/components/sections/gallery";
 import { Introduction } from "@/components/sections/introduction";
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
       <Services />
       <WhyUs />
       <Process />
+      <Gallery />
       <Introduction />
       <DiggingDivider />
       <Contact />
