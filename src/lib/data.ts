@@ -5,6 +5,11 @@ export const company = {
   tagline: homeCopy.headline,
   phone: "+359 897 606 676",
   phoneHref: "+359897606676",
+  additionalPhone: "0876 727 261",
+  additionalPhoneHref: "+359876727261",
+  email: "sdm.construct26@gmail.com",
+  instagram: "https://www.instagram.com/sdm.construct26/",
+  instagramHandle: "@sdm.construct26",
 };
 
 export const service = {

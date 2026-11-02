@@ -56,7 +56,9 @@ export default function RootLayout({
     "@type": "GeneralContractor",
     name: company.name,
     url: siteUrl,
-    telephone: company.phoneHref,
+    telephone: [company.phoneHref, company.additionalPhoneHref],
+    email: company.email,
+    sameAs: [company.instagram],
   };
 
   return (
